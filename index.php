@@ -42,7 +42,20 @@
                     <a href="film.php"><img class="poster_accueil" src="image/posters/id24.jpg"></a>
                     <a href="film.php"><img class="poster_accueil" src="image/posters/id25.jpg"></a>
 
-                    
+                    <?php
+
+                        $sqlQuery = 'SELECT * FROM film where id_film = 1';
+                        $filmsStatement = $mysqlClient->prepare($sqlQuery);
+                        $filmsStatement->execute();
+                        $films = $filmsStatement->fetchAll();
+
+                        // On affiche chaque recette une à une
+                        foreach ($films as $film) 
+
+                    ?>
+
+                    <span class="poster"><a href="<?php echo $film['poster']; ?>"><img src="<?php echo $film['poster']; ?>" alt="poster...."></a> <!-- poster --></span>
+
 
                 </div>
                 

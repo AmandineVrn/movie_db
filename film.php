@@ -10,7 +10,7 @@
         <div class="contenu_body">
             <header>
                 <div class="titre_logo">
-                    <a href="index.html"><span class="logo"><img class="logo" src="image/mdb.png" alt="logo du site"></a></span> <!-- logo -->
+                    <a href="index.php"><span class="logo"><img class="logo" src="image/mdb.png" alt="logo du site"></a></span> <!-- logo -->
                     <h3>Movie DB</h3><!--ajouter logo ?? -->
                 </div> <!-- fin titre + logo-->
                 <!-- ajouter barre de recherche-->
@@ -33,7 +33,7 @@
                     // Si tout va bien, on peut continuer
 
                     // On récupère tout le contenu de la table recipes
-                    $sqlQuery = 'SELECT * FROM film where id_film = 1';
+                    $sqlQuery = 'SELECT * FROM film where id_film = 9';
                     $filmsStatement = $mysqlClient->prepare($sqlQuery);
                     $filmsStatement->execute();
                     $films = $filmsStatement->fetchAll();
@@ -80,7 +80,7 @@
                     </div> <!-- fin ensemble photo -->
                 </div>
                 <div class="bloc_trailer"> 
-                    <iframe width="510" height="287" src="https://www.youtube.com/embed/HsWlgInAdu0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  
+                    <iframe width="510" height="287" src="<?php echo $film['trailer']; ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  
                 </div> 
 
                 
