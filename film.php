@@ -39,12 +39,21 @@
                     $films = $filmsStatement->fetchAll();
 
                     // On affiche chaque recette une à une
-                    foreach ($films as $film) {
+                    foreach ($films as $film) 
+
+                    $sqlQuery = 'SELECT * FROM casting where id_film = 1';
+                    $castStatement = $mysqlClient->prepare($sqlQuery);
+                    $castStatement->execute();
+                    $cast = $castStatement->fetchAll();
+
+                    // On affiche chaque recette une à une
+                    foreach ($cast as $casting) 
+
                     ?>
                         
-                    <?php
-                    }
-                ?>
+                    
+                
+                
               
 
                 <div class="bloc_infos">
@@ -57,7 +66,8 @@
                 </div> <!-- fin bloc infos -->
                 <div class="bloc_casting">
                     <div class="ensemble_photo">   
-                        <div class="photo_acteur"><a href="google.com/search?q=acteur"><img src="image/casting/acteur.jpg"><span class="legende"></a><h5 class="nom_acteur">Prénom Nom</h5><h5 class="nom_perso">Prénom Nom</h5></div>
+                        
+                        <div class="photo_acteur"><a href="google.com/search?q=acteur"><img src="image/casting/acteur.jpg"><span class="legende"></a><h5 class="nom_acteur"><?php echo $casting['nom'];?></h5><h5 class="nom_perso">Prénom Nom</h5></div>
                         <div class="photo_acteur"><a href="google.com/search?q=acteur"><img src="image/casting/acteur.jpg"><span class="legende"></a><h5 class="nom_acteur">Prénom Nom</h5><h5 class="nom_perso">Prénom Nom</h5></div>
                         <div class="photo_acteur"><a href="google.com/search?q=acteur"><img src="image/casting/acteur.jpg"><span class="legende"></a><h5 class="nom_acteur">Prénom Nom</h5><h5 class="nom_perso">Prénom Nom</h5></div>
                         <div class="photo_acteur"><a href="google.com/search?q=acteur"><img src="image/casting/acteur.jpg"><span class="legende"></a><h5 class="nom_acteur">Prénom Nom</h5><h5 class="nom_perso">Prénom Nom</h5></div>

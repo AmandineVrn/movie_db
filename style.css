@@ -1,25 +1,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
 
+
 body, html{
     margin: 0px;
     padding: 0px;
     background-color: #323233 ;
     color: #F1F1F1;
     font-family: 'Lato', sans-serif;
-    display: flex;
+    
     height: 100%;
     width: 100%;
     overflow-x: hidden;
+    align-items: stretch;
+    justify-content: stretch;
+    
+    
+    
     
 }
 .contenu{
-    padding: 8% 10% 0% 8%;
-    padding-right: 35%;
-    justify-content: center;
+    
+    
     display: flex;
     flex-direction: column;
-    overflow-wrap: normal ;
-    justify-content: center;
+    align-items: stretch;
+    align-content: stretch;
+    justify-content: stretch;
+    flex-wrap: wrap;
+    border: 1px transparent solid;
+    margin: 100px;
+    padding: 10px;
+    
+    
     
 
 
@@ -32,7 +44,7 @@ header{
     height: 140px;
     position: fixed;
     border: 1px solid transparent;
-    display: flex;
+    margin-top: -6.5em;
     align-items: center;
 }
 
@@ -76,7 +88,7 @@ h3{
     display: flex;
     border: 1px solid transparent;
     margin-top: 5em;
-    width: 90%;
+    width: 100%;
     
 
 
@@ -111,12 +123,14 @@ h3{
 }
 
 .synopsis{
-    display: inline-block;
+    display: flex;
     width: fit-content;
     height: fit-content;
     border: 1px solid transparent;
     margin: 0;
-    font-size: 1.5em;
+    font-size: 1.3em;
+    flex-wrap: wrap;
+    word-wrap: break-word;
 }
 
 /*bloc casting*/
@@ -125,7 +139,7 @@ h3{
     display: flex;
     flex: box;
 
-    width: 90%;
+    width: 100%;
     height: fit-content;
 
     margin-top: 5em;
@@ -188,10 +202,12 @@ h3{
     width: 570px;
     height: 347px;
     display: flex;
-    position: relative;
+    align-items: center;
     border-radius: 45px;
+    position: relative;
+   
     margin-top: 5em;
-    margin-left: 20em;
+    margin-left: 20em; 
     
 
     
@@ -214,6 +230,10 @@ iframe{
 
 
 /* index.html */
+
+.tableau_poster a img{
+    height: 300px;
+}
 
 .tableau_poster{
     align-content: center;
@@ -258,3 +278,10 @@ iframe{
     background-color: #c4c4c4;
     border-radius: 10px;
 }
+
+
+body {
+    margin: 0;
+    padding: 0;
+    }
+
