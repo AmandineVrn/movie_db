@@ -185,13 +185,30 @@ h3{
 
 .bloc_trailer{
     background-color:  rgba(141, 141, 168, 0.58);
-    width: 40%;
-    height: 300px;
+    width: 570px;
+    height: 347px;
     display: flex;
+    position: relative;
     border-radius: 45px;
     margin-top: 5em;
-    margin-left: 30%;
-    align-content: space-around;
+    margin-left: 20em;
+    
+
+    
+
+}
+
+/* intégration youtube pour le trailer */
+
+iframe{
+    
+    padding: 40px;
+    align-items: stretch;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 65px;
 
 }
 

@@ -69,10 +69,9 @@
                         <div class="photo_acteur"><a href="google.com/search?q=acteur"><img src="image/casting/acteur.jpg"><span class="legende"></a><h5 class="nom_acteur">Prénom Nom</h5><h5 class="nom_perso">Prénom Nom</h5></div>
                     </div> <!-- fin ensemble photo -->
                 </div>
-                <div class="bloc_trailer">
-                    <!-- insérer intégration player youtube du trailer du fillm -->
-                    
-                </div>
+                <div class="bloc_trailer"> 
+                    <iframe width="510" height="287" src="https://www.youtube.com/embed/HsWlgInAdu0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  
+                </div> 
 
                 
 
