@@ -33,7 +33,7 @@
                     // Si tout va bien, on peut continuer
 
                     // On récupère tout le contenu de la table recipes
-                    $sqlQuery = 'SELECT * FROM film where id_film = 9';
+                    $sqlQuery = 'SELECT * FROM film where id_film = 1';
                     $filmsStatement = $mysqlClient->prepare($sqlQuery);
                     $filmsStatement->execute();
                     $films = $filmsStatement->fetchAll();
@@ -67,7 +67,7 @@
                 <div class="bloc_casting">
                     <div class="ensemble_photo">   
                         
-                        <div class="photo_acteur"><a href="google.com/search?q=acteur"><img src="image/casting/acteur.jpg"><span class="legende"></a><h5 class="nom_acteur"><?php echo $casting['nom'];?></h5><h5 class="nom_perso">Prénom Nom</h5></div>
+                        <div class="photo_acteur"><a href="google.com/search?q=acteur"><img src="<?php echo $casting['photo']; ?>"><span class="legende"></a><h5 class="nom_acteur"><?php echo $casting["nom"]; ?></h5><h5 class="nom_perso">Prénom Nom</h5></div>
                         <div class="photo_acteur"><a href="google.com/search?q=acteur"><img src="image/casting/acteur.jpg"><span class="legende"></a><h5 class="nom_acteur">Prénom Nom</h5><h5 class="nom_perso">Prénom Nom</h5></div>
                         <div class="photo_acteur"><a href="google.com/search?q=acteur"><img src="image/casting/acteur.jpg"><span class="legende"></a><h5 class="nom_acteur">Prénom Nom</h5><h5 class="nom_perso">Prénom Nom</h5></div>
                         <div class="photo_acteur"><a href="google.com/search?q=acteur"><img src="image/casting/acteur.jpg"><span class="legende"></a><h5 class="nom_acteur">Prénom Nom</h5><h5 class="nom_perso">Prénom Nom</h5></div>

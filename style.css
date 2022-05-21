@@ -28,7 +28,9 @@ body, html{
     justify-content: stretch;
     flex-wrap: wrap;
     border: 1px transparent solid;
-    margin: 100px;
+    margin-left: 10%;
+    margin-right: 9%;
+    margin-top: 9%;
     padding: 10px;
     
     
@@ -44,7 +46,7 @@ header{
     height: 140px;
     position: fixed;
     border: 1px solid transparent;
-    margin-top: -6.5em;
+    margin-top: -9.5em;
     align-items: center;
 }
 
@@ -137,7 +139,7 @@ h3{
 
 .bloc_casting{
     display: flex;
-    flex: box;
+    
 
     width: 100%;
     height: fit-content;
@@ -162,7 +164,7 @@ h3{
 
     border : 1px solid transparent ;
     border-radius: 45px;
-    flex-direction: row-reverse;
+    
 
 
 }
@@ -170,6 +172,12 @@ h3{
 .photo_acteur{
     border: 1px solid transparent;
     margin-left: 1em;
+   
+
+}
+
+.photo_acteur  a img{
+    height: 300px;
 
 }
 
@@ -231,9 +239,7 @@ iframe{
 
 /* index.html */
 
-.tableau_poster a img{
-    height: 300px;
-}
+
 
 .tableau_poster{
     align-content: center;
@@ -241,18 +247,21 @@ iframe{
     margin-top: 5em;
     margin-left: 2em;
     margin-right: 2em;
-    /*border: 1px red solid;*/
+    border: 1px transparent solid;
     flex-wrap: wrap;
-    justify-content: center;
+    align-items: center;
+    justify-content: space-evenly;
 
 }
 
 
 .poster_accueil{
+    height: 280px;
     border: 1px solid transparent;
     justify-content: space-around;
+    align-items: flex-end;
     margin: 1em;
-
+    
 }
 .poster_accueil:hover{
     border: 1.5px white solid;

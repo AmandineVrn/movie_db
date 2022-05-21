@@ -15,6 +15,7 @@
                 <!-- ajouter barre de recherche-->
             </header>
             <div class="contenu">
+                
                 <div class="tableau_poster">
                     <a href="film.php?id_film=1"><img class="poster_accueil" src="image/posters/id1.jpg"></a>
                     <a href="film.php"><img class="poster_accueil" src="image/posters/id2.jpg"></a>
@@ -36,7 +37,7 @@
                     <a href="film.php"><img class="poster_accueil" src="image/posters/id19.jpg"></a>
                     <a href="film.php"><img class="poster_accueil" src="image/posters/id20.jpg"></a>
                     <a href="film.php"><img class="poster_accueil" src="image/posters/id21.jpg"></a>
-                </div>
+                </div> 
 
 
                 <?php
@@ -53,7 +54,7 @@
 
                     // Si tout va bien, on peut continuer
 
-                    // On récupère tout le contenu de la table recipes
+                    // On récupère tout le contenu de la table film
                     $sqlQuery = 'SELECT * FROM film';
                     $filmsStatement = $mysqlClient->prepare($sqlQuery);
                     $filmsStatement->execute();
@@ -64,7 +65,20 @@
 
                 ?>
 
-                <span class="poster"><a href="<?php echo $film['poster']; ?>"><img src="<?php echo $film['poster']; ?>" alt="poster...."></a> <!-- poster --></span>
+                <p><?php echo $film['titre']; ?></p>       
+                
+                <?php
+                    $sqlQuery = 'SELECT * FROM film WHERE titre = :titre AND annee = :annee';
+
+                    $db->prepare($sqlQuery);
+                    $film = $db->execute([
+                        'titre' => 'The Batman',
+                        'annee' => 2022,
+                    ]);
+
+                ?>
+
+                
 
                 
                 
