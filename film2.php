@@ -36,10 +36,10 @@
 
                     // On récupère tout le contenu de la table recipes
                     
-                    $page = 1; // variable pour changer de page
+                    $page = 2; // variable pour changer de page
 
                 
-                    $sqlQuery = "SELECT * FROM film WHERE id_film = 1";  //$sqlQuery = "SELECT * FROM film WHERE id_film = '{$page}'";
+                    $sqlQuery = "SELECT * FROM film WHERE id_film = '{$page}'";  //$sqlQuery = "SELECT * FROM film WHERE id_film = '{$page}'";
                     $filmsStatement = $mysqlClient->prepare($sqlQuery);
                     $filmsStatement->execute();
                     $films = $filmsStatement->fetchAll();
@@ -68,7 +68,7 @@
 
                 <div class="bloc_casting">                    
                     <?php
-                        $sqlQuery = "SELECT * FROM casting WHERE id_film = '{$a}'";
+                        $sqlQuery = "SELECT * FROM casting WHERE id_film = '{$page}'";
                         $castStatement = $mysqlClient->prepare($sqlQuery);
                         $castStatement->execute();
                         $cast = $castStatement->fetchAll();
