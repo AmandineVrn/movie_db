@@ -36,15 +36,15 @@
 
                     // On récupère tout le contenu de la table recipes
                     
-                    $a = 2;
+                    $page = 1; // variable pour changer de page
 
                 
-                    $sqlQuery = "SELECT * FROM film WHERE id_film = '{$a}'";
+                    $sqlQuery = "SELECT * FROM film WHERE id_film = 1";  //$sqlQuery = "SELECT * FROM film WHERE id_film = '{$page}'";
                     $filmsStatement = $mysqlClient->prepare($sqlQuery);
                     $filmsStatement->execute();
                     $films = $filmsStatement->fetchAll();
 
-                    // On affiche chaque recette une à une
+                    
                     foreach ($films as $film) {
                     ?>
                         
