@@ -159,7 +159,8 @@ h3{
 
 .ensemble_photo{
     display: flex;
-    padding:2em;
+    padding-top: 2em;
+    padding-left: 1em;
     align-items: flex-start;
 
     border : 1px solid transparent ;
@@ -171,13 +172,15 @@ h3{
 
 .photo_acteur{
     border: 1px solid transparent;
-    margin-left: 1em;
+    margin-left: 0px;
    
 
 }
 
 .photo_acteur  a img{
     height: 300px;
+    width: 200px;
+    
 
 }
 

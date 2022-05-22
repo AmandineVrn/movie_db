@@ -19,6 +19,8 @@
 
                 
                 <?php
+
+                
                     try
                     {
                         // On se connecte à MySQL
@@ -33,27 +35,26 @@
                     // Si tout va bien, on peut continuer
 
                     // On récupère tout le contenu de la table recipes
-                    $sqlQuery = 'SELECT * FROM film where id_film = 1';
+                    
+                    $a = 2;
+
+                
+                    $sqlQuery = "SELECT * FROM film WHERE id_film = '{$a}'";
                     $filmsStatement = $mysqlClient->prepare($sqlQuery);
                     $filmsStatement->execute();
                     $films = $filmsStatement->fetchAll();
 
                     // On affiche chaque recette une à une
-                    foreach ($films as $film) 
-
-                    $sqlQuery = 'SELECT * FROM casting where id_film = 1';
-                    $castStatement = $mysqlClient->prepare($sqlQuery);
-                    $castStatement->execute();
-                    $cast = $castStatement->fetchAll();
-
-                    // On affiche chaque recette une à une
-                    foreach ($cast as $casting) 
-
+                    foreach ($films as $film) {
                     ?>
                         
-                    
-                
-                
+                    <?php
+                    }
+                     
+
+                    ?>
+
+
               
 
                 <div class="bloc_infos">
@@ -64,21 +65,32 @@
                         <p class="synopsis"><?php echo $film['synopsis']; ?></p> <!-- synopsis du film -->
                     </div> <!-- fin bloc infos écrites -->
                 </div> <!-- fin bloc infos -->
-                <div class="bloc_casting">
-                    <div class="ensemble_photo">   
+
+                <div class="bloc_casting">                    
+                    <?php
+                        $sqlQuery = "SELECT * FROM casting WHERE id_film = '{$a}'";
+                        $castStatement = $mysqlClient->prepare($sqlQuery);
+                        $castStatement->execute();
+                        $cast = $castStatement->fetchAll();
+
+                        // On affiche chaque recette une à une
+                        foreach ($cast as $casting) {
+                        ?>
+                            
+                                <div class="ensemble_photo">    
+                                    <div class="photo_acteur"><a href="google.com/search?q=acteur"><img src="<?php echo $casting['photo']; ?>"><span class="legende"></a><h5 class="nom_acteur"><?php echo $casting["nom"]; ?></h5><h5 class="nom_perso"><?php echo$casting["role"]; ?></h5></div>
+                                </div> <!-- fin ensemble photo -->
+                            
+
+                        <?php
+                        }
                         
-                        <div class="photo_acteur"><a href="google.com/search?q=acteur"><img src="<?php echo $casting['photo']; ?>"><span class="legende"></a><h5 class="nom_acteur"><?php echo $casting["nom"]; ?></h5><h5 class="nom_perso">Prénom Nom</h5></div>
-                        <div class="photo_acteur"><a href="google.com/search?q=acteur"><img src="image/casting/acteur.jpg"><span class="legende"></a><h5 class="nom_acteur">Prénom Nom</h5><h5 class="nom_perso">Prénom Nom</h5></div>
-                        <div class="photo_acteur"><a href="google.com/search?q=acteur"><img src="image/casting/acteur.jpg"><span class="legende"></a><h5 class="nom_acteur">Prénom Nom</h5><h5 class="nom_perso">Prénom Nom</h5></div>
-                        <div class="photo_acteur"><a href="google.com/search?q=acteur"><img src="image/casting/acteur.jpg"><span class="legende"></a><h5 class="nom_acteur">Prénom Nom</h5><h5 class="nom_perso">Prénom Nom</h5></div>
-                        <div class="photo_acteur"><a href="google.com/search?q=acteur"><img src="image/casting/acteur.jpg"><span class="legende"></a><h5 class="nom_acteur">Prénom Nom</h5><h5 class="nom_perso">Prénom Nom</h5></div>
-                        <div class="photo_acteur"><a href="google.com/search?q=acteur"><img src="image/casting/acteur.jpg"><span class="legende"></a><h5 class="nom_acteur">Prénom Nom</h5><h5 class="nom_perso">Prénom Nom</h5></div>
-                        <div class="photo_acteur"><a href="google.com/search?q=acteur"><img src="image/casting/acteur.jpg"><span class="legende"></a><h5 class="nom_acteur">Prénom Nom</h5><h5 class="nom_perso">Prénom Nom</h5></div>
-                        <div class="photo_acteur"><a href="google.com/search?q=acteur"><img src="image/casting/acteur.jpg"><span class="legende"></a><h5 class="nom_acteur">Prénom Nom</h5><h5 class="nom_perso">Prénom Nom</h5></div>
-                        <div class="photo_acteur"><a href="google.com/search?q=acteur"><img src="image/casting/acteur.jpg"><span class="legende"></a><h5 class="nom_acteur">Prénom Nom</h5><h5 class="nom_perso">Prénom Nom</h5></div>
-                        <div class="photo_acteur"><a href="google.com/search?q=acteur"><img src="image/casting/acteur.jpg"><span class="legende"></a><h5 class="nom_acteur">Prénom Nom</h5><h5 class="nom_perso">Prénom Nom</h5></div>
-                    </div> <!-- fin ensemble photo -->
+
+                    ?>
                 </div>
+
+                
+
                 <div class="bloc_trailer"> 
                     <iframe width="510" height="287" src="<?php echo $film['trailer']; ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  
                 </div> 

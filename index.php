@@ -15,69 +15,57 @@
                 <!-- ajouter barre de recherche-->
             </header>
             <div class="contenu">
+
+                <?php
+
+                                    
+                            try
+                            {
+                                // On se connecte à MySQL
+                                $mysqlClient = new PDO('mysql:host=localhost;dbname=film_db;charset=utf8', 'root', 'root');
+                            }
+                            catch(Exception $e)
+                            {
+                                // En cas d'erreur, on affiche un message et on arrête tout
+                                    die('Erreur : '.$e->getMessage());
+                            }
+
+                            // Si tout va bien, on peut continuer
+
+                            // On récupère tout le contenu de la table film
+                        ?> 
                 
                 <div class="tableau_poster">
-                    <a href="film.php?id_film=1"><img class="poster_accueil" src="image/posters/id1.jpg"></a>
-                    <a href="film.php"><img class="poster_accueil" src="image/posters/id2.jpg"></a>
-                    <a href="film.php"><img class="poster_accueil" src="image/posters/id3.jpg"></a>
-                    <a href="film.php"><img class="poster_accueil" src="image/posters/id4.jpg"></a>
-                    <a href="film.php"><img class="poster_accueil" src="image/posters/id5.jpg"></a>
-                    <a href="film.php"><img class="poster_accueil" src="image/posters/id6.jpg"></a>
-                    <a href="film.php"><img class="poster_accueil" src="image/posters/id7.jpg"></a>
-                    <a href="film.php"><img class="poster_accueil" src="image/posters/id8.jpg"></a>
-                    <a href="film.php"><img class="poster_accueil" src="image/posters/id9.jpg"></a>
-                    <a href="film.php"><img class="poster_accueil" src="image/posters/id11.jpg"></a>
-                    <a href="film.php"><img class="poster_accueil" src="image/posters/id12.jpg"></a>
-                    <a href="film.php"><img class="poster_accueil" src="image/posters/id13.jpg"></a>
-                    <a href="film.php"><img class="poster_accueil" src="image/posters/id14.jpg"></a>
-                    <a href="film.php"><img class="poster_accueil" src="image/posters/id15.jpg"></a>
-                    <a href="film.php"><img class="poster_accueil" src="image/posters/id16.jpg"></a>
-                    <a href="film.php"><img class="poster_accueil" src="image/posters/id17.jpg"></a>
-                    <a href="film.php"><img class="poster_accueil" src="image/posters/id18.jpg"></a>
-                    <a href="film.php"><img class="poster_accueil" src="image/posters/id19.jpg"></a>
-                    <a href="film.php"><img class="poster_accueil" src="image/posters/id20.jpg"></a>
-                    <a href="film.php"><img class="poster_accueil" src="image/posters/id21.jpg"></a>
+                    
+                       
+                        
+                    <?php    
+                        $sqlQuery = "SELECT * FROM film order by annee desc";
+                        $filmsStatement = $mysqlClient->prepare($sqlQuery);
+                        $filmsStatement->execute();
+                        $films = $filmsStatement->fetchAll();
+
+                        // On affiche chaque poster un à un
+                        foreach ($films as $film) {
+                        ?>
+                        
+                        <a href="film.php"><img class="poster_accueil" src="<?php echo$film["poster"] ?>"></a>
+
+                        <?php
+                        }
+                        
+
+                        ?>
+
+
                 </div> 
 
 
-                <?php
-                    try
-                    {
-                        // On se connecte à MySQL
-                        $mysqlClient = new PDO('mysql:host=localhost;dbname=film_db;charset=utf8', 'root', 'root');
-                    }
-                    catch(Exception $e)
-                    {
-                        // En cas d'erreur, on affiche un message et on arrête tout
-                            die('Erreur : '.$e->getMessage());
-                    }
 
-                    // Si tout va bien, on peut continuer
 
-                    // On récupère tout le contenu de la table film
-                    $sqlQuery = 'SELECT * FROM film';
-                    $filmsStatement = $mysqlClient->prepare($sqlQuery);
-                    $filmsStatement->execute();
-                    $films = $filmsStatement->fetchAll();
 
-                    // On affiche chaque recette une à une
-                    foreach ($films as $film) 
 
-                ?>
-
-                <p><?php echo $film['titre']; ?></p>       
                 
-                <?php
-                    $sqlQuery = 'SELECT * FROM film WHERE titre = :titre AND annee = :annee';
-
-                    $db->prepare($sqlQuery);
-                    $film = $db->execute([
-                        'titre' => 'The Batman',
-                        'annee' => 2022,
-                    ]);
-
-                ?>
-
                 
 
                 
