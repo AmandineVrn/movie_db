@@ -20,6 +20,7 @@
                 
                 <?php
 
+                    $page = $_GET["var"];
                 
                     try
                     {
@@ -36,7 +37,7 @@
 
                     // On récupère tout le contenu de la table recipes
                     
-                    $page = 1; // variable pour changer de page
+                    #$page = 1; // variable pour changer de page
 
                 
                     $sqlQuery = "SELECT * FROM film WHERE id_film = '{$page}'";  //$sqlQuery = "SELECT * FROM film WHERE id_film = '{$page}'";
